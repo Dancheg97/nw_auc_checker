@@ -26,5 +26,27 @@ def make_search(name) -> bool:
     return rez
 
 
-def send_message_to_discord():
+first = True
+
+
+def send_message_to_discord(name):
+    global first
     time.sleep(1)
+    pg.keyDown('alt')
+    time.sleep(0.2)
+    pg.press('tab')
+    if first:
+        time.sleep(0.2)
+        pg.press('tab')
+        first = False
+    time.sleep(0.2)
+    pg.keyUp('alt')
+    pg.typewrite(f'FOUND: {name}', interval=0.1)
+    pg.press('enter')
+    time.sleep(1)
+    pg.keyDown('alt')
+    time.sleep(0.2)
+    pg.press('tab')
+    time.sleep(0.2)
+    pg.keyUp('alt')
+    time.sleep(0.2)
