@@ -1,11 +1,16 @@
 import actions
 import pyautogui as pg
-import search_list
 
 actions.open_game()
 
-actions.make_search("red clay pot")
+
+search_list = [
+    "red clay pot",
+    "chunk of adderstone",
+]
+
 
 # while True:
-#     for name in search_list.search_list:
-#         actions.make_soearch(name)
+for name in search_list:
+    if actions.make_search(name):
+        actions.send_message_to_discord()
